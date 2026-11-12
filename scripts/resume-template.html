@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{NAME}} — Resume</title>
+<!--
+  One-page A4 resume template. Fill the {{...}} placeholders, duplicate the
+  <article> blocks for extra roles/projects, and keep the content on one page.
+  Margins live inside .page so the PDF script (scripts/make-pdf.mjs) can print
+  with zero page margins.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; background: #fff; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-size: 10pt;
+    line-height: 1.42;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 13mm 15mm 12mm;
+    display: flex;
+    flex-direction: column;
+    gap: 9pt;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Header */
+  .header { border-bottom: 1.5pt solid #1a1a1a; padding-bottom: 6pt; }
+
+  h1 {
+    margin: 0;
+    font-size: 21pt;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+
+  .headline {
+    margin: 2pt 0 0;
+    font-size: 10.5pt;
+    color: #444;
+    letter-spacing: 0.01em;
+  }
+
+  .contact {
+    margin: 5pt 0 0;
+    color: #333;
+    font-size: 9pt;
+  }
+
+  .contact span { white-space: nowrap; }
+  .contact span + span::before { content: " · "; color: #999; }
+
+  /* Sections */
+  section { break-inside: avoid; }
+
+  h2 {
+    margin: 0 0 5pt;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #111;
+    border-bottom: 0.5pt solid #c8c8c8;
+    padding-bottom: 2pt;
+  }
+
+  p { margin: 0; }
+
+  .summary { color: #2b2b2b; }
+
+  /* Experience and projects */
+  .entry + .entry { margin-top: 7pt; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 10.5pt;
+    font-weight: 600;
+  }
+
+  .dates {
+    font-size: 9pt;
+    color: #555;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .entry-sub {
+    display: flex;
+    justify-content: space-between;
+    gap: 10pt;
+    font-size: 9.5pt;
+    color: #444;
+    margin-top: 1pt;
+  }
+
+  .entry-sub .place { color: #666; white-space: nowrap; }
+
+  ul {
+    margin: 3pt 0 0;
+    padding-left: 12pt;
+    list-style-type: disc;
+  }
+
+  li { margin: 0 0 1.5pt; }
+  li::marker { color: #888; }
+
+  .stack {
+    margin-top: 1pt;
+    font-size: 9pt;
+    color: #555;
+  }
+
+  /* Skills */
+  .skills { margin: 0; padding: 0; list-style: none; }
+
+  .skills li {
+    display: grid;
+    grid-template-columns: 34mm 1fr;
+    gap: 6pt;
+    margin: 0 0 2pt;
+  }
+
+  .skills .label { font-weight: 600; color: #222; }
+
+  /* Education */
+  .edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .edu-head .school { font-size: 9.5pt; color: #444; }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="header">
+    <h1>{{NAME}}</h1>
+    <p class="headline">{{TARGET_ROLE}}</p>
+    <p class="contact">
+      <span>{{EMAIL}}</span>
+      <span>{{PHONE}}</span>
+      <span>{{LOCATION}}</span>
+      <span>{{LINKEDIN}}</span>
+      <span>{{GITHUB}}</span>
+    </p>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">{{SUMMARY}}</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>{{JOB_TITLE}}</h3>
+        <span class="dates">{{START}} – {{END}}</span>
+      </div>
+      <div class="entry-sub">
+        <span>{{COMPANY}}</span>
+        <span class="place">{{JOB_LOCATION}}</span>
+      </div>
+      <ul>
+        <li>{{ACHIEVEMENT_ONE}}</li>
+        <li>{{ACHIEVEMENT_TWO}}</li>
+        <li>{{ACHIEVEMENT_THREE}}</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>{{JOB_TITLE}}</h3>
+        <span class="dates">{{START}} – {{END}}</span>
+      </div>
+      <div class="entry-sub">
+        <span>{{COMPANY}}</span>
+        <span class="place">{{JOB_LOCATION}}</span>
+      </div>
+      <ul>
+        <li>{{ACHIEVEMENT_ONE}}</li>
+        <li>{{ACHIEVEMENT_TWO}}</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>{{PROJECT_NAME}}</h3>
+        <span class="dates">{{PROJECT_PERIOD}}</span>
+      </div>
+      <p>{{PROJECT_DESCRIPTION}}</p>
+      <p class="stack">{{PROJECT_STACK}}</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>{{PROJECT_NAME}}</h3>
+        <span class="dates">{{PROJECT_PERIOD}}</span>
+      </div>
+      <p>{{PROJECT_DESCRIPTION}}</p>
+      <p class="stack">{{PROJECT_STACK}}</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li><span class="label">Languages</span><span>{{SKILL_LANGUAGES}}</span></li>
+      <li><span class="label">Frameworks</span><span>{{SKILL_FRAMEWORKS}}</span></li>
+      <li><span class="label">Tools</span><span>{{SKILL_TOOLS}}</span></li>
+      <li><span class="label">Practices</span><span>{{SKILL_PRACTICES}}</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu-head">
+      <div>
+        <h3>{{DEGREE}}</h3>
+        <p class="school">{{SCHOOL}}</p>
+      </div>
+      <span class="dates">{{GRADUATION_YEAR}}</span>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

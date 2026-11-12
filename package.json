@@ -1,0 +1,10 @@
+{
+  "name": "job-hunter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared job-hunting workspace for six AI agents",
+  "dependencies": {
+    "puppeteer": "^25.17.0"
+  }
+}

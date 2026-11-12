@@ -1,0 +1,13 @@
+node_modules/
+.env
+
+# Personal job-search data: resumes, recruiter contacts, application tracker
+jobs/
+tracker.json
+
+# IDE / local tooling artifacts
+.codesight/
+
+# OS cruft
+Thumbs.db
+.DS_Store
