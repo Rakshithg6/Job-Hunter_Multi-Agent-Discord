@@ -29,6 +29,15 @@ cp .env.example .env
 
 All three are optional. Scripts fail with a clear message only when the feature you asked for needs a missing key.
 
+## Running the agents with Switch Console
+
+The scripts are driven by AI agents. To set them up and run them, install **Switch Console** — the desktop app for configuring Switch and running agents from:
+
+- **Download:** [latest Switch Console release](https://github.com/sandbox-quantum/switch/releases/latest)
+- **Install guide:** [Install Switch Console](https://docs.switchagents.ai/switch-rooms/getting-started/install-switch-console)
+
+Pick the build for your platform: `.dmg` for macOS, `.exe` or `.msi` for Windows, and `.deb`, `.rpm`, or `.AppImage` for Linux. The Windows and Linux builds are currently early access.
+
 ## Scripts
 
 ### `search-jobs.mjs`
@@ -99,7 +108,3 @@ tracker.json      all outreach and application status
 ```
 
 `jobs/` and `tracker.json` hold personal data (resumes, contact details, recruiter outreach) and are gitignored by design. Only the tooling is tracked in this repository.
-
-## License
-
-MIT
